@@ -582,6 +582,19 @@
   }
 }
 
+@media (max-width: 768px) {
+  .mesh-gradient,
+  .card-gradient,
+  .animate-float-gentle,
+  .backdrop-blur-xl,
+  .backdrop-blur-sm {
+    filter: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    opacity: 0.8 !important;
+  }
+}
+
 /* 3D effects */
 .transform-3d {
   transform-style: preserve-3d;

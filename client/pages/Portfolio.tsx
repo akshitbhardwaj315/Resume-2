@@ -157,7 +157,11 @@ const Portfolio = () => {
 
   // Alternative scroll-based section detection as backup
   useEffect(() => {
+    let lastCall = 0;
     const handleScroll = () => {
+      const now = Date.now();
+      if (now - lastCall < 100) return;
+      lastCall = now;
       const scrollPosition = window.scrollY + window.innerHeight / 2;
 
       for (let i = sectionsRef.current.length - 1; i >= 0; i--) {
@@ -274,6 +278,7 @@ const Portfolio = () => {
                 animationDelay: `${i * 4}s`,
                 animationDuration: `${40 + i * 10}s`,
                 filter: 'blur(2px)',
+                willChange: 'transform, opacity',
               }}
             />
           ))}
@@ -290,6 +295,7 @@ const Portfolio = () => {
               animation: 'float-smooth-1 20s ease-in-out infinite',
               transform: 'translate3d(0,0,0)',
               filter: 'blur(1px)',
+              willChange: 'transform, opacity',
             }}
           />
           <div
@@ -302,6 +308,7 @@ const Portfolio = () => {
               animationDelay: '10s',
               transform: 'translate3d(0,0,0)',
               filter: 'blur(1px)',
+              willChange: 'transform, opacity',
             }}
           />
         </div>
@@ -315,6 +322,7 @@ const Portfolio = () => {
               top: '30%',
               animation: 'gentle-pulse 6s ease-in-out infinite',
               transform: 'translate3d(0,0,0)',
+              willChange: 'transform, opacity',
             }}
           />
           <div
@@ -325,6 +333,7 @@ const Portfolio = () => {
               animation: 'gentle-pulse 8s ease-in-out infinite',
               animationDelay: '3s',
               transform: 'translate3d(0,0,0)',
+              willChange: 'transform, opacity',
             }}
           />
           <div
@@ -335,6 +344,7 @@ const Portfolio = () => {
               animation: 'gentle-pulse 7s ease-in-out infinite',
               animationDelay: '1.5s',
               transform: 'translate3d(0,0,0)',
+              willChange: 'transform, opacity',
             }}
           />
         </div>
@@ -348,6 +358,7 @@ const Portfolio = () => {
             style={{
               background: 'radial-gradient(ellipse 60% 40% at 30% 20%, rgba(59, 130, 246, 0.1), transparent, rgba(139, 92, 246, 0.1))',
               animationDuration: '8s',
+              willChange: 'transform, opacity',
             }}
           />
           <div
@@ -356,6 +367,7 @@ const Portfolio = () => {
               background: 'radial-gradient(ellipse 50% 30% at 70% 80%, rgba(236, 72, 153, 0.1), transparent, rgba(147, 51, 234, 0.1))',
               animationDuration: '12s',
               animationDelay: '4s',
+              willChange: 'transform, opacity',
             }}
                     />
         </div>
@@ -583,6 +595,7 @@ const Portfolio = () => {
                       <img
                        src="/images/my_pic.jpeg"
                         alt="Akshit Bhardwaj"
+                        loading="lazy"
                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent hover:from-blue-500/10 transition-all duration-500"></div>
@@ -668,6 +681,7 @@ const Portfolio = () => {
                 top: '10%',
                 animation: 'float-smooth-1 25s ease-in-out infinite',
                 filter: 'blur(2px)',
+                willChange: 'transform, opacity',
               }}
             />
             <div
@@ -679,6 +693,7 @@ const Portfolio = () => {
                 animation: 'float-smooth-2 30s ease-in-out infinite',
                 animationDelay: '12s',
                 filter: 'blur(2px)',
+                willChange: 'transform, opacity',
               }}
             />
           </div>
@@ -830,6 +845,7 @@ const Portfolio = () => {
                 top: '20%',
                 animation: 'float-smooth-1 28s ease-in-out infinite',
                 filter: 'blur(3px)',
+                willChange: 'transform, opacity',
               }}
             />
             <div
@@ -841,6 +857,7 @@ const Portfolio = () => {
                 animation: 'float-smooth-2 35s ease-in-out infinite',
                 animationDelay: '15s',
                 filter: 'blur(3px)',
+                willChange: 'transform, opacity',
               }}
             />
           </div>
@@ -965,6 +982,7 @@ const Portfolio = () => {
                 animation: 'float-smooth-1 18s ease-in-out infinite',
                 transform: 'translate3d(0,0,0)',
                 filter: 'blur(2px)',
+                willChange: 'transform, opacity',
               }}
             />
             <div
@@ -977,6 +995,7 @@ const Portfolio = () => {
                 animationDelay: '8s',
                 transform: 'translate3d(0,0,0)',
                 filter: 'blur(2px)',
+                willChange: 'transform, opacity',
               }}
             />
           </div>
@@ -1691,6 +1710,7 @@ const Portfolio = () => {
                       onChange={handleInputChange}
                       required
                                                                   className="w-full px-6 py-4 bg-slate-700/50 border border-slate-600/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 pointer-events-auto"
+                      style={{ cursor: 'text' }}
                     />
                   </div>
                   <div>
@@ -1702,6 +1722,7 @@ const Portfolio = () => {
                       onChange={handleInputChange}
                       required
                                                                   className="w-full px-6 py-4 bg-slate-700/50 border border-slate-600/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 pointer-events-auto"
+                      style={{ cursor: 'text' }}
                     />
                   </div>
                   <div>
@@ -1712,6 +1733,7 @@ const Portfolio = () => {
                       value={formData.subject}
                       onChange={handleInputChange}
                                                                   className="w-full px-6 py-4 bg-slate-700/50 border border-slate-600/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 pointer-events-auto"
+                      style={{ cursor: 'text' }}
                     />
                   </div>
                   <div>
@@ -1723,6 +1745,7 @@ const Portfolio = () => {
                       onChange={handleInputChange}
                       required
                                             className="w-full px-6 py-4 bg-slate-700/50 border border-slate-600/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-all duration-300"
+                      style={{ cursor: 'text' }}
                     />
                   </div>
                   <button type="submit" className="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white rounded-xl font-semibold transition-all duration-500 hover:scale-110 hover:-translate-y-2 shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 transform-3d">

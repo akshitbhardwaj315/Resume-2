@@ -27,15 +27,14 @@ const Contact = () => {
     });
   };
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    // Simulate form submission
-        setTimeout(() => {
-      setIsSubmitting(false);
-      alert("Message submitted! Since this is a demo, the message isn't actually sent. In a real implementation, this would be sent to akshitbhardwaj315@gmail.com");
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 2000);
+    const subject = encodeURIComponent(formData.subject || 'Contact from Portfolio');
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+    window.location.href = `mailto:akshitbhardwaj315@gmail.com?subject=${subject}&body=${body}`;
+    setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
   const contactInfo = [
