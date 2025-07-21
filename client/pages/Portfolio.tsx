@@ -1795,28 +1795,6 @@ const Portfolio = () => {
           </div>
         </section>
       </main>
-
-      {/* Section Indicators with enhanced animations */}
-      <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-50 space-y-3">
-        {sections.map((section, index) => (
-          <div key={index} className="relative group">
-            <button
-              onClick={() => scrollToSection(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-500 hover:scale-150 transform-3d ${
-                currentSection === index
-                  ? "bg-blue-500 scale-125 glow-blue animate-pulse"
-                  : "bg-slate-600 hover:bg-slate-500"
-              }`}
-              aria-label={`Go to ${section.name} section`}
-            />
-            
-            {/* Tooltip with 3D effect */}
-            <div className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-slate-800/95 backdrop-blur-sm text-white px-3 py-1 rounded-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none whitespace-nowrap border border-slate-700 group-hover:scale-110 group-hover:-translate-x-2 shadow-lg">
-              {section.name}
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
   );
 };
