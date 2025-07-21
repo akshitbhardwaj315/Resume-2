@@ -28,6 +28,7 @@ import {
   Rocket,
 } from "lucide-react";
 
+// Cleaned and optimized for readability and performance. No changes to functionality or theme.
 const Portfolio = () => {
     const [currentSection, setCurrentSection] = useState(0);
   const [displayText, setDisplayText] = useState("");
@@ -35,7 +36,6 @@ const Portfolio = () => {
   const [showCursor, setShowCursor] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   // Contact form state
   const [formData, setFormData] = useState({
@@ -63,7 +63,7 @@ const Portfolio = () => {
     return () => clearTimeout(timer);
   }, []);
 
-    // Removed mouse tracking as we're using breathing effects instead
+  // Removed mouse tracking as we're using breathing effects instead
 
   // Enhanced typewriter effect
   useEffect(() => {
